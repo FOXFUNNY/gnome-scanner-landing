@@ -140,16 +140,13 @@ img { max-width: 100%; }
 
 /* ── NAV ── */
 nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
+  position: sticky;
+  top: 0;
   z-index: 100;
   border-bottom: 1px solid var(--border);
   background: rgba(13,17,23,0.97);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  will-change: transform;
 }
 .nav-inner {
   display: flex;
@@ -224,7 +221,7 @@ nav {
 
 /* ── HERO ── */
 .hero {
-  padding: 140px 0 100px;
+  padding: 80px 0 100px;
   position: relative;
   overflow: hidden;
 }
@@ -912,7 +909,7 @@ footer {
   .burger { display: flex; }
   .nav-inner .btn { display: none; }
 
-  .hero { padding: 100px 0 60px; }
+  .hero { padding: 48px 0 60px; }
   .hero-inner { display: block; text-align: center; }
   .hero-sub { max-width: 100%; }
   .hero-cta { justify-content: center; }
