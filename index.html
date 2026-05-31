@@ -1142,8 +1142,8 @@ footer {
       <p data-i18n="video.sub">За 30 секунд — от вставки адреса до готового анализа. Смотри как это работает.</p>
     </div>
     <div class="video-wrap">
-      <video controls playsinline preload="metadata" poster="" style="width:100%;max-width:360px;border-radius:16px;border:1px solid var(--border);background:#000;display:block;margin:0 auto;">
-        <source src="demo.mp4" type="video/mp4">
+      <video id="demoVideo" controls playsinline preload="metadata" poster="" style="width:100%;max-width:360px;border-radius:16px;border:1px solid var(--border);background:#000;display:block;margin:0 auto;">
+        <source id="demoVideoSrc" src="demo-ru.mp4" type="video/mp4">
       </video>
     </div>
   </div>
@@ -1524,6 +1524,11 @@ const GUIDE_URLS = {
   en: 'https://telegra.ph/Gnome-Scanner--Documentation-04-30'
 };
 
+const VIDEO_URLS = {
+  ru: 'demo-ru.mp4',
+  en: 'demo-en.mp4'
+};
+
 function applyLang(lang) {
   const t = TRANSLATIONS[lang];
   if (!t) return;
@@ -1541,6 +1546,17 @@ function applyLang(lang) {
   document.querySelectorAll('[data-i18n-href="guide"]').forEach(el => {
     el.href = GUIDE_URLS[lang];
   });
+  
+  // Swap video source by language
+  const videoEl = document.getElementById('demoVideo');
+  const videoSrc = document.getElementById('demoVideoSrc');
+  if (videoEl && videoSrc && VIDEO_URLS[lang]) {
+    const newSrc = VIDEO_URLS[lang];
+    if (videoSrc.getAttribute('src') !== newSrc) {
+      videoSrc.setAttribute('src', newSrc);
+      videoEl.load();
+    }
+  }
   
   document.querySelectorAll('.lang-switch button').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.lang === lang);
