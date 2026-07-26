@@ -140,13 +140,10 @@ img { max-width: 100%; }
 
 /* ── NAV ── */
 nav {
-  position: sticky;
-  top: 0;
+  position: relative;
   z-index: 100;
   border-bottom: 1px solid var(--border);
-  background: rgba(13,17,23,0.97);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: var(--bg);
 }
 .nav-inner {
   display: flex;
@@ -208,7 +205,12 @@ nav {
   border-top: 1px solid var(--border);
   padding: 16px 24px;
   gap: 8px;
-  background: rgba(13,17,23,0.97);
+  background: rgba(13,17,23,0.98);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 200;
 }
 .mobile-menu a {
   color: var(--muted);
@@ -221,7 +223,7 @@ nav {
 
 /* ── HERO ── */
 .hero {
-  padding: 80px 0 100px;
+  padding: 100px 0 100px;
   position: relative;
   overflow: hidden;
 }
@@ -667,6 +669,18 @@ nav {
 
 /* ── PRICING ── */
 .pricing { padding: 80px 0; }
+.pricing-note {
+  max-width: 620px;
+  margin: 32px auto 0;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--muted);
+  padding: 16px 20px;
+  background: var(--accent-dim);
+  border: 1px solid var(--border-accent);
+  border-radius: 12px;
+}
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -909,7 +923,7 @@ footer {
   .burger { display: flex; }
   .nav-inner .btn { display: none; }
 
-  .hero { padding: 48px 0 60px; }
+  .hero { padding: 56px 0 60px; }
   .hero-inner { display: block; text-align: center; }
   .hero-sub { max-width: 100%; }
   .hero-cta { justify-content: center; }
@@ -1209,9 +1223,7 @@ footer {
         </div>
         <div class="price-body">
           <ul class="price-features">
-            <li><span class="check">✓</span><span data-i18n="pricing.free.f1">1 кошелёк в день</span></li>
-            <li><span class="check">✓</span><span data-i18n="pricing.free.f2">Базовый анализ кошельков</span></li>
-            <li><span class="check">✓</span><span data-i18n="pricing.free.f3">WinRate и ROI</span></li>
+            <li><span class="check">✓</span><span data-i18n="pricing.free.f1">2 кошелька в день</span></li>
           </ul>
           <a href="https://t.me/gnome_scanner_bot" class="btn btn-ghost" data-i18n="pricing.startFree">Начать бесплатно</a>
         </div>
@@ -1230,9 +1242,6 @@ footer {
         <div class="price-body">
           <ul class="price-features">
             <li><span class="check">✓</span><span data-i18n="pricing.std.f1">До 50 кошельков в день</span></li>
-            <li><span class="check">✓</span><span data-i18n="pricing.std.f2">Полный анализ кошельков</span></li>
-            <li><span class="check">✓</span><span data-i18n="pricing.std.f3">Sweet Spot и оптимизатор</span></li>
-            <li><span class="check">✓</span><span data-i18n="pricing.std.f4">Бэктест стратегий</span></li>
           </ul>
           <a href="https://t.me/gnome_scanner_bot" class="btn btn-ghost" data-i18n="pricing.choose">Выбрать</a>
         </div>
@@ -1250,15 +1259,14 @@ footer {
         </div>
         <div class="price-body">
           <ul class="price-features">
-            <li><span class="check">✓</span><span data-i18n="pricing.prem.f1">Всё из Standard</span></li>
-            <li><span class="check">✓</span><span data-i18n="pricing.prem.f2">Безлимитное количество кошельков</span></li>
-            <li><span class="check">✓</span><span data-i18n="pricing.prem.f3">Приоритетная поддержка</span></li>
-            <li><span class="check">✓</span><span data-i18n="pricing.prem.f4">Ранний доступ к фичам</span></li>
+            <li><span class="check">✓</span><span data-i18n="pricing.prem.f1">Безлимитное количество кошельков</span></li>
+            <li><span class="check">✓</span><span data-i18n="pricing.prem.f2">Новые функции по вашим запросам</span></li>
           </ul>
           <a href="https://t.me/gnome_scanner_bot" class="btn btn-primary" data-i18n="pricing.choose">Выбрать</a>
         </div>
       </div>
     </div>
+    <p class="pricing-note" data-i18n="pricing.note">Все функции доступны на любом тарифе: Sweet Spot, оптимизатор, бэктест, умный поиск, архетипы. Тарифы отличаются только количеством кошельков в день.</p>
   </div>
 </section>
 
@@ -1388,19 +1396,13 @@ const TRANSLATIONS = {
     'pricing.tag': 'Тарифы',
     'pricing.title': 'Выбери свой план',
     'pricing.foreverFree': 'навсегда бесплатно',
-    'pricing.free.f1': '1 кошелёк в день',
-    'pricing.free.f2': 'Базовый анализ кошельков',
-    'pricing.free.f3': 'WinRate и ROI',
+    'pricing.free.f1': '2 кошелька в день',
     'pricing.std.f1': 'До 50 кошельков в день',
-    'pricing.std.f2': 'Полный анализ кошельков',
-    'pricing.std.f3': 'Sweet Spot и оптимизатор',
-    'pricing.std.f4': 'Бэктест стратегий',
-    'pricing.prem.f1': 'Всё из Standard',
-    'pricing.prem.f2': 'Безлимитное количество кошельков',
-    'pricing.prem.f3': 'Приоритетная поддержка',
-    'pricing.prem.f4': 'Ранний доступ к фичам',
+    'pricing.prem.f1': 'Безлимитное количество кошельков',
+    'pricing.prem.f2': 'Новые функции по вашим запросам',
     'pricing.startFree': 'Начать бесплатно',
     'pricing.choose': 'Выбрать',
+    'pricing.note': 'Все функции доступны на любом тарифе: Sweet Spot, оптимизатор, бэктест, умный поиск, архетипы. Тарифы отличаются только количеством кошельков в день.',
     
     'community.tag': 'Сообщество',
     'community.title': 'Будь в курсе',
@@ -1487,19 +1489,13 @@ const TRANSLATIONS = {
     'pricing.tag': 'Pricing',
     'pricing.title': 'Pick your plan',
     'pricing.foreverFree': 'free forever',
-    'pricing.free.f1': '1 wallet per day',
-    'pricing.free.f2': 'Basic wallet analysis',
-    'pricing.free.f3': 'WinRate and ROI',
+    'pricing.free.f1': '2 wallets per day',
     'pricing.std.f1': 'Up to 50 wallets per day',
-    'pricing.std.f2': 'Full wallet analysis',
-    'pricing.std.f3': 'Sweet Spot and optimizer',
-    'pricing.std.f4': 'Strategy backtest',
-    'pricing.prem.f1': 'Everything in Standard',
-    'pricing.prem.f2': 'Unlimited wallets',
-    'pricing.prem.f3': 'Priority support',
-    'pricing.prem.f4': 'Early access to features',
+    'pricing.prem.f1': 'Unlimited wallets',
+    'pricing.prem.f2': 'New features on your request',
     'pricing.startFree': 'Start free',
     'pricing.choose': 'Choose',
+    'pricing.note': 'All features are available on every plan: Sweet Spot, optimizer, backtest, smart search, archetypes. Plans differ only in the number of wallets per day.',
     
     'community.tag': 'Community',
     'community.title': 'Stay in the loop',
