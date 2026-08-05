@@ -669,18 +669,6 @@ nav {
 
 /* ── PRICING ── */
 .pricing { padding: 80px 0; }
-.pricing-note {
-  max-width: 620px;
-  margin: 32px auto 0;
-  text-align: center;
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--muted);
-  padding: 16px 20px;
-  background: var(--accent-dim);
-  border: 1px solid var(--border-accent);
-  border-radius: 12px;
-}
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1224,6 +1212,7 @@ footer {
         <div class="price-body">
           <ul class="price-features">
             <li><span class="check">✓</span><span data-i18n="pricing.free.f1">2 кошелька в день</span></li>
+            <li><span class="check">✓</span><span data-i18n="pricing.free.f2">Бэктест, Sweet Spot, все сделки, экспорт</span></li>
           </ul>
           <a href="https://t.me/gnome_scanner_bot" class="btn btn-ghost" data-i18n="pricing.startFree">Начать бесплатно</a>
         </div>
@@ -1237,11 +1226,12 @@ footer {
             <span class="num">49</span>
             <span class="period">/мес</span>
           </div>
-          <div class="price-sol">≈ 0.59 SOL</div>
+          <div class="price-sol"><span class="sol-amount" data-usd="49">≈ 0.66 SOL</span></div>
         </div>
         <div class="price-body">
           <ul class="price-features">
-            <li><span class="check">✓</span><span data-i18n="pricing.std.f1">До 50 кошельков в день</span></li>
+            <li><span class="check">✓</span><span data-i18n="pricing.std.f1">50 кошельков в день</span></li>
+            <li><span class="check">✓</span><span data-i18n="pricing.std.f2">Всё из Free</span></li>
           </ul>
           <a href="https://t.me/gnome_scanner_bot" class="btn btn-ghost" data-i18n="pricing.choose">Выбрать</a>
         </div>
@@ -1255,18 +1245,20 @@ footer {
             <span class="num">89</span>
             <span class="period">/мес</span>
           </div>
-          <div class="price-sol">≈ 1.06 SOL</div>
+          <div class="price-sol"><span class="sol-amount" data-usd="89">≈ 1.19 SOL</span></div>
         </div>
         <div class="price-body">
           <ul class="price-features">
-            <li><span class="check">✓</span><span data-i18n="pricing.prem.f1">Безлимитное количество кошельков</span></li>
-            <li><span class="check">✓</span><span data-i18n="pricing.prem.f2">Новые функции по вашим запросам</span></li>
+            <li><span class="check">✓</span><span data-i18n="pricing.prem.f1">Без ограничений по кошелькам</span></li>
+            <li><span class="check">✓</span><span data-i18n="pricing.prem.f2">Оптимизатор</span></li>
+            <li><span class="check">✓</span><span data-i18n="pricing.prem.f3">Умный поиск</span></li>
+            <li><span class="check">✓</span><span data-i18n="pricing.prem.f4">Всё из Standard</span></li>
+            <li><span class="check">✓</span><span data-i18n="pricing.prem.f5">Влияние на развитие продукта</span></li>
           </ul>
           <a href="https://t.me/gnome_scanner_bot" class="btn btn-primary" data-i18n="pricing.choose">Выбрать</a>
         </div>
       </div>
     </div>
-    <p class="pricing-note" data-i18n="pricing.note">Все функции доступны на любом тарифе: Sweet Spot, оптимизатор, бэктест, умный поиск, архетипы. Тарифы отличаются только количеством кошельков в день.</p>
   </div>
 </section>
 
@@ -1397,12 +1389,16 @@ const TRANSLATIONS = {
     'pricing.title': 'Выбери свой план',
     'pricing.foreverFree': 'навсегда бесплатно',
     'pricing.free.f1': '2 кошелька в день',
-    'pricing.std.f1': 'До 50 кошельков в день',
-    'pricing.prem.f1': 'Безлимитное количество кошельков',
-    'pricing.prem.f2': 'Новые функции по вашим запросам',
+    'pricing.free.f2': 'Бэктест, Sweet Spot, все сделки, экспорт',
+    'pricing.std.f1': '50 кошельков в день',
+    'pricing.std.f2': 'Всё из Free',
+    'pricing.prem.f1': 'Без ограничений по кошелькам',
+    'pricing.prem.f2': 'Оптимизатор',
+    'pricing.prem.f3': 'Умный поиск',
+    'pricing.prem.f4': 'Всё из Standard',
+    'pricing.prem.f5': 'Влияние на развитие продукта',
     'pricing.startFree': 'Начать бесплатно',
     'pricing.choose': 'Выбрать',
-    'pricing.note': 'Все функции доступны на любом тарифе: Sweet Spot, оптимизатор, бэктест, умный поиск, архетипы. Тарифы отличаются только количеством кошельков в день.',
     
     'community.tag': 'Сообщество',
     'community.title': 'Будь в курсе',
@@ -1490,12 +1486,16 @@ const TRANSLATIONS = {
     'pricing.title': 'Pick your plan',
     'pricing.foreverFree': 'free forever',
     'pricing.free.f1': '2 wallets per day',
-    'pricing.std.f1': 'Up to 50 wallets per day',
-    'pricing.prem.f1': 'Unlimited wallets',
-    'pricing.prem.f2': 'New features on your request',
+    'pricing.free.f2': 'Backtest, Sweet Spot, all trades, export',
+    'pricing.std.f1': '50 wallets per day',
+    'pricing.std.f2': 'Everything in Free',
+    'pricing.prem.f1': 'No wallet limits',
+    'pricing.prem.f2': 'Optimizer',
+    'pricing.prem.f3': 'Smart search',
+    'pricing.prem.f4': 'Everything in Standard',
+    'pricing.prem.f5': 'Influence on product development',
     'pricing.startFree': 'Start free',
     'pricing.choose': 'Choose',
-    'pricing.note': 'All features are available on every plan: Sweet Spot, optimizer, backtest, smart search, archetypes. Plans differ only in the number of wallets per day.',
     
     'community.tag': 'Community',
     'community.title': 'Stay in the loop',
@@ -1571,6 +1571,28 @@ document.querySelectorAll('.lang-switch button').forEach(btn => {
 });
 
 applyLang(detectInitialLang());
+
+
+// ── LIVE SOL PRICE ──
+// Fetches current SOL/USD rate and recalculates ≈ SOL under each paid plan.
+// Falls back silently to the hardcoded values if the API is unavailable.
+(function updateSolPrices() {
+  const els = document.querySelectorAll('.sol-amount[data-usd]');
+  if (!els.length) return;
+  fetch('https://api.coingecko.com/api/v3/simple/price?ids=solana&vs_currencies=usd')
+    .then(r => r.ok ? r.json() : Promise.reject())
+    .then(data => {
+      const rate = data && data.solana && data.solana.usd;
+      if (!rate || rate <= 0) return;
+      els.forEach(el => {
+        const usd = parseFloat(el.getAttribute('data-usd'));
+        if (!usd) return;
+        const sol = usd / rate;
+        el.textContent = '≈ ' + sol.toFixed(2) + ' SOL';
+      });
+    })
+    .catch(() => { /* keep fallback text */ });
+})();
 
 
 // Burger menu
